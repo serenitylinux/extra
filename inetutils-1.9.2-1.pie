@@ -1,0 +1,40 @@
+# vim: ft=sh
+name="inetutils"
+iteration="1"
+version="1.9.2"
+desc="A collection of common network programs"
+url="http://www.gnu.org/software/inetutils/"
+src="http://ftp.gnu.org/gnu/inetutils/${name}-${version}.tar.xz"
+bdeps="help2man"
+deps="pam"
+arch="any"
+flags=""
+srcdir="$name-$version"
+
+
+function configure() {
+	./configure --prefix=/usr --libexec=/usr/bin \
+    --localstatedir=/var --sysconfdir=/etc \
+    --without-wrap --with-pam \
+    --enable-ftp --enable-ftpd \
+    --enable-telnet --enable-telnetd \
+    --enable-talk --enable-talkd \
+    --enable-rlogin --enable-rlogind \
+    --enable-rsh --enable-rshd \
+    --enable-rcp --enable-hostname --enable-dnsdomainname \
+    --disable-rexec --disable-rexecd \
+    --disable-tftp --disable-tftpd \
+    --disable-ping --disable-ping6 \
+    --disable-logger --disable-syslogd \
+    --disable-inetd --disable-whois \
+    --disable-uucpd --disable-ifconfig --disable-traceroute
+}
+
+function build() {
+	default
+}
+
+function installpkg() {
+	 //TODO install services
+	default
+}
