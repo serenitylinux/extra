@@ -1,0 +1,30 @@
+# vim: ft=sh
+name="python2-urwid"
+iteration="1"
+version="1.1.1"
+desc="Urwid is a curses-based user interface library."
+url="http://excess.org/urwid/"
+src="http://excess.org/urwid/urwid-$version.tar.gz"
+bdeps="python2-distribute"
+deps="python2"
+arch="any"
+flags=""
+srcdir="$name-$version"
+
+
+function configure() {
+	 cp -r urwid-$version python2.7-urwid-$version
+	 cd "$dest_dir/urwid-$version"
+	 python setup.py build
+	 cd "$dest_dir/python2.7-urwid-$version"
+	 sed -i 's#bin/python2.7#' urwid/*.py
+  	 python2 setup.py build
+}
+
+function build() {
+	none
+}
+
+function installpkg() {
+	 python2.7 setup.py install --prefix=/usr --root="$dir_dir" --optimize=1
+}
