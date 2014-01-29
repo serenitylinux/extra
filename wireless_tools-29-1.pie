@@ -1,0 +1,30 @@
+# vim: ft=sh
+name="wireless_tools"
+iteration="1"
+version="29"
+desc="Tools allowing to manipulate the Wireless Extensions"
+url="http://www.hpl.hp.com/personal/Jean_Tourrilhes/Linux/Tools.html"
+src="http://www.hpl.hp.com/personal/Jean_Tourrilhes/Linux/${name}.${version}.tar.gz"
+bdeps=""
+deps=""
+arch="any"
+flags=""
+srcdir="$name-$version"
+
+
+function configure() {
+	none
+}
+
+function build() {
+	 make CFLAGS="${CFLAGS} -I." LDFLAGS="${LDFLAGS}"
+}
+
+function installpkg() {
+	 make \
+		INSTALL_DIR="${dest_dir}/usr/bin" \
+		INSTALL_LIB="${dest_dir}/usr/lib" \
+		INSTALL_INC="${dest_dir}/usr/include" \
+		INSTALL_MAN="${dest_dir}/usr/share/man" \
+		install
+}
