@@ -1,0 +1,30 @@
+# vim: ft=sh
+name="libnl"
+iteration="1"
+version="3.2.23"
+desc="Library for applications dealing with netlink sockets"
+url="http://www.infradead.org/~tgr/libnl/"
+src="http://www.infradead.org/~tgr/libnl/files/$name-$version.tar.gz"
+bdeps=""
+deps="glibc"
+arch="any"
+flags=""
+srcdir="$name-$version"
+
+
+function configure() {
+	default
+	./configure \
+    		    --prefix=/usr \
+		    --sysconfdir=/etc \
+		    --sbindir=/usr/bin \
+		    --disable-static
+}
+
+function build() {
+	default
+}
+
+function installpkg() {
+	default
+}
