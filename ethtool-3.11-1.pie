@@ -1,0 +1,26 @@
+# vim: ft=sh
+name="ethtool"
+iteration="1"
+version="3.11"
+desc="Utility for controlling network drivers and hardware"
+url="http://www.kernel.org/pub/software/network/ethtool/"
+src="http://www.kernel.org/pub/software/network/$name/$name-$version.tar.xz"
+bdeps=""
+deps="glibc"
+arch="any"
+flags=""
+srcdir="$name-$version"
+
+
+function configure() {
+	 ./configure --prefix=/usr --mandir=/usr/share/man \
+	 	     --sbindir=/usr/bin
+}
+
+function build() {
+	default
+}
+
+function installpkg() {
+	default
+}
