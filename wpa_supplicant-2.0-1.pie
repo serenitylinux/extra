@@ -1,0 +1,41 @@
+# vim: ft=sh
+name="wpa_supplicant"
+iteration="1"
+version="2.0"
+desc="A utility providing key negotiation for WPA wireless networks"
+url="http://hostap.epitest.fi/wpa_supplicant"
+src="http://w1.fi/releases/${name}-${version}.tar.gz"
+bdeps=""
+deps="openssl dbus-core readline libnl"
+arch="any"
+flags=""
+srcdir="$name-$version"
+
+
+function configure() {
+	curk -l https://projects.archlinux.org/svntogit/packages.git/plain/trunk/config?h=packages/wpa_supplicant -o ./.config
+
+	sed -i 's@/usr/local@$(PREFIX)@g' Makefile
+
+}
+
+function build() {
+	make PREFIX=/usr
+}
+
+function installpkg() {
+	make PREFIX=/usr DESTDIR=${dest_dir} install
+
+	install -d -m755 "${dest_dir}/etc/wpa_supplicant"
+	install -m644 wpa_supplicant.conf "${dest_dir}/etc/wpa_supplicant/wpa_supplicant.conf"
+
+	  install -d -m755 "${dest_dir}/usr/share/dbus-1/system-services"
+  install -m644 dbus/{fi.epitest.hostap.WPASupplicant.service,fi.w1.wpa_supplicant1.service} "${dest_dir}/usr/share/dbus-1/system-services/"
+
+  install -d -m755 "${dest_dir}/etc/dbus-1/system.d"
+  install -m644 dbus/dbus-wpa_supplicant.conf "${dest_dir}/etc/dbus-1/system.d/wpa_supplicant.conf"
+
+  install -d -m755 "${dest_dir}/usr/lib/systemd/system"
+  install -m644 systemd/*.service "${dest_dir}/usr/lib/systemd/system/"
+
+}
