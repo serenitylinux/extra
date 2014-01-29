@@ -1,0 +1,25 @@
+# vim: ft=sh
+name=""
+iteration="1"
+version=""
+desc=""
+url=""
+src=""
+bdeps=""
+deps=""
+arch="any"
+flags=""
+srcdir="$name-$version"
+
+
+function configure() {
+	default
+}
+
+function build() {
+	default
+}
+
+function installpkg() {
+	default
+}

@@ -1,0 +1,27 @@
+# vim: ft=sh
+name="net-tools"
+iteration="1"
+version="1.60.20130531"
+desc="Configuration tools for Linux networking"
+url="http://net-tools.sourceforge.net/"
+src=""
+bdeps="git"
+deps="glibc"
+arch="any"
+flags=""
+srcdir="$name-$version"
+
+
+function configure() {
+	 git clone git://git.code.sf.net/p/net-tools
+	 git checkout 6a14c03f
+	default
+}
+
+function build() {
+	default
+}
+
+function installpkg() {
+	default
+}
