@@ -1,0 +1,30 @@
+# vim: ft=sh
+name="sqlite"
+iteration="1"
+version="3.8.2"
+fversion="3080200"
+desc="A C library that implements a SQL database engine"
+url="http://sqlite.org/"
+src="http://www.sqlite.org/2013/sqlite-autoconf-$fversion.tar.gz"
+#tcl
+bdeps="readline curl"
+deps=""
+arch="any"
+flags=""
+srcdir="$name-autoconf-$fversion"
+
+
+function configure() {
+	export CFLAGS="$CFLAGS -DSQLITE_ENABLE_FTS3=1 -DSQLITE_ENABLE_COLUMN_METADATA=1 -DSQLITE_ENABLE_UNLOCK_NOTIFY -DSQLITE_SECURE_DELETE"
+	./configure --prefix=/usr --disable-static
+}
+
+function build() {
+	default
+}
+
+function installpkg() {
+	default
+	curl -k "${url}/copyright.txt" -o license.txt
+	install -D -m644 license.txt ${dest_dir}/usr/share/licenses/${name}/license.txt
+}

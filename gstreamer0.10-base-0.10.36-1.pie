@@ -1,0 +1,26 @@
+# vim: ft=sh
+name="gstreamer0.10-base"
+_name="gst-plugins-base"
+iteration="1"
+version="0.10.36"
+desc="GStreamer Multimedia Framework Base plugin libraries"
+url="http://gstreamer.freedesktop.org/"
+src="$url/src/$_name/$_name-$version.tar.gz"
+bdeps="pkg-config gstreamer0.10 libxv gobject-introspection"
+deps=""
+arch="any"
+flags=""
+srcdir="$_name-$version"
+
+
+function configure() {
+	default
+}
+
+function build() {
+	default
+}
+
+function installpkg() {
+	default
+}

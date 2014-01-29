@@ -1,0 +1,46 @@
+# vim: ft=sh
+name="webkitgtk2"
+iteration="1"
+version="1.10.2"
+desc="GTK+ Web engine"
+#enchant 
+deps="libxt libxslt libsoup mesa gtk2"
+
+#ruby
+bdeps="$deps gperf gobject-introspection python2 mesa ruby gstreamer0.10-base"
+arch="any"
+flags=""
+
+src="http://webkitgtk.org/releases/webkitgtk-$version.tar.xz"
+url="http://webkitgtk.org/"
+srcdir="webkitgtk-$version"
+
+function configure() {
+	curl -k "https://projects.archlinux.org/svntogit/packages.git/plain/trunk/bison3.patch?h=packages/$name" -o bison3.patch
+        patch -Np1 -i bison3.patch
+        sed -e 's/AM_CONFIG_HEADER/AC_CONFIG_HEADERS/' -i configure.ac
+
+	CPPFLAGS+=" -Wno-unused-local-typedefs" 
+	export PYTHON=/usr/bin/python2.7
+	./configure --prefix=/usr \
+		--libexecdir=/usr/lib/$name \
+		--enable-introspection \
+		--disable-webkit2 \
+		--disable-geolocation \
+		--disable-gtk-doc \
+		--with-gtk=2.0
+
+	#bugzilla.gnome.org/show_bug.cgi?id=644417
+	sed -i 's/ -shared / -W1,-O1,--as-needed\0/g' libtool
+
+}
+
+function build() {
+	default
+}
+
+function installpkg() {
+	make DESTDIR=${dest_dir} install -i 
+	install -Dm644 Source/WebKit/LICENSE $dest_dir/usr/share/licenses/$name/LICENSE
+#	rm -r $dest_dir/usr/share/gtk-dir/html/webkitgtk
+}
