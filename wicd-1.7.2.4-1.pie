@@ -1,0 +1,40 @@
+# vim: ft=sh
+name="wicd-gtk"
+iteration="1"
+version="1.7.2.4"
+desc="Wired and wireless network manager for Linux"
+url="http://wicd.sourceforge.net/"
+src="http://launchpad.net/wicd/1.7/$version/+download/wicd-$version.tar.gz"
+deps=""
+bdeps="python2 pygtk hicolor-icon-theme python2-dbus dhcpcd wpa_supplicant wireless_tools inetutils net-tools ethtool shared-mime-info python2-urwid python2-gobject2 dbus-glib rfkill"
+arch="any"
+flags=""
+srcdir="$name-$version"
+
+
+function configure() {
+	find . -type f -exec sed -i 's@#!/usr.*python@#!/usr/bin/python2.7@' {} \;
+	export PYTHON=python2.7
+	python2.7 setup.py configure --no-install-init \
+	                     --resume=/usr/share/wicd/scripts/ \
+                             --suspend=/usr/share/wicd/scripts/ \
+                             --verbose \
+                             --python=/usr/bin/python2.7 \
+			     --lib=/usr/lib \
+			     --sbin=/usr/bin \
+			     --systemd=/usr/lib/systemd/system
+	
+}
+
+function build() {
+	none
+}
+
+function installpkg() {
+	python2.7 setup.py install --optimize=1 --root="$dest_dir"
+	
+  	cd build/lib/wicd
+  	for i in *.py; do
+    	    install -Dm 755 $i "$dest_dir/usr/lib/wicd/$i"
+  	done
+}
