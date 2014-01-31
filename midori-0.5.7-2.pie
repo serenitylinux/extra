@@ -1,0 +1,33 @@
+# vim: ft=sh
+name="midori"
+iteration="2"
+version="0.5.7"
+desc="Lightweight web browser"
+url="http://midori-browser.org/"
+src="http://midori-browser.org/downloads/${name}_${version}_all_.tar.bz2"
+#libzeitgeist
+#libnotify
+#libxss
+deps="webkitgtk2 hicolor-icon-theme desktop-file-utils libunique libnotify"
+bdeps="$deps python2 intltool vala librsvg cmake libxslt"
+arch="any"
+flags=""
+srcdir="$name-$version"
+
+
+function configure() {
+	./configure --disable-zeitgeist --prefix=/usr 
+	cmake . -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_INSTALL_LIBDIR=lib
+}
+
+function build() {
+	default
+}
+
+function installpkg() {
+	default
+}
+function post_install() {
+	update-desktop-database -q
+	gtk-update-icon-cache -f -q -t /usr/share/icons/hicolor
+}
