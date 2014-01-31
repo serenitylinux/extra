@@ -9,11 +9,11 @@ bdeps=""
 deps="openssl dbus readline libnl"
 arch="any"
 flags=""
-srcdir="$name-$version"
+srcdir="$name-$version/$name"
 
 
 function configure() {
-	curk -l https://projects.archlinux.org/svntogit/packages.git/plain/trunk/config?h=packages/wpa_supplicant -o ./.config
+	curl -l https://projects.archlinux.org/svntogit/packages.git/plain/trunk/config?h=packages/wpa_supplicant -o ./.config
 
 	sed -i 's@/usr/local@$(PREFIX)@g' Makefile
 

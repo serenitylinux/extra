@@ -9,7 +9,7 @@ bdeps=""
 deps=""
 arch="any"
 flags=""
-srcdir="$name-$version"
+srcdir="${name}.$version"
 
 
 function configure() {

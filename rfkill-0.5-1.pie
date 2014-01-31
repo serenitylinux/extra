@@ -4,7 +4,7 @@ iteration="1"
 version="0.5"
 desc="Tool for enabling and disabling wireless devices"
 url="http://wireless.kernel.org/en/users/Documentation/rfkill"
-src="https://www.kernel.org/pub/software/network/${pkgname}/${pkgname}-${version}.tar.xz"
+src="https://www.kernel.org/pub/software/network/${name}/${name}-${version}.tar.xz"
 bdeps=""
 deps=""
 arch="any"
@@ -13,7 +13,7 @@ srcdir="$name-$version"
 
 
 function configure() {
-	default
+	none
 }
 
 function build() {
