@@ -1,0 +1,33 @@
+# vim: ft=sh
+name="slim"
+iteration="1"
+version="1.3.6"
+desc="Desktop-independent graphical login manager for X11"
+url="http://slim.berlios.de/"
+src="http://download.berlios.de/$name/$name-$version.tar.gz"
+deps="pam libxmu libjpeg libxft libxrandr xorg-xauth"
+bdeps="cmake $deps"
+arch="any"
+flags=""
+srcdir="$name-$version"
+
+
+function configure() {
+	sed -i 's|set(LIBDIR "/lib")|set(LIBDIR "/usr/lib")|' CMakeLists.txt
+	cmake \
+		-DCMAKE_INSTALL_PREFIX=/usr \
+		-DCMAKE_BUILD_TYPE=Release \
+		-DCMAKE_SKIP_RPATH=ON \
+		-DUSE_PAM=yes \
+		-DFREETYPE_INCLUDE_DIRS=/usr/include/freetype2/ \
+		-DFREETYPE_INCLUDE_DIR_freetype2=/usr/include/freetype2 \
+		-DUSE_CONSOLEKIT=no
+}
+
+function build() {
+	default
+}
+
+function installpkg() {
+	default
+}
