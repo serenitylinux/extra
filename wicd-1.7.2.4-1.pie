@@ -1,5 +1,5 @@
 # vim: ft=sh
-name="wicd-gtk"
+name="wicd"
 iteration="1"
 version="1.7.2.4"
 desc="Wired and wireless network manager for Linux"
