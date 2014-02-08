@@ -19,6 +19,7 @@ function configure() {
 }
 
 function build() {
+	cd code
 	set +e
 	yes "" | make
 	set -e
@@ -26,5 +27,6 @@ function build() {
 }
 
 function installpkg() {
+	cd code
 	default
 }

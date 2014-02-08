@@ -5,20 +5,17 @@ version="1.1.1"
 desc="Urwid is a curses-based user interface library."
 url="http://excess.org/urwid/"
 src="http://excess.org/urwid/urwid-$version.tar.gz"
-bdeps="python2-setuptools"
+bdeps="python2-setuptools python2"
 deps="python2"
 arch="any"
 flags=""
-srcdir="$name-$version"
+srcdir="urwid-$version"
 
 
 function configure() {
-	 cp -r urwid-$version python2.7-urwid-$version
-	 cd "$dest_dir/urwid-$version"
-	 python setup.py build
-	 cd "$dest_dir/python2.7-urwid-$version"
-	 sed -i 's#bin/python2.7#' urwid/*.py
-  	 python2 setup.py build
+	 
+	 sed -i 's#bin/python#bin/python2#' urwid/*.py
+  	 python2.7 setup.py build
 }
 
 function build() {
@@ -26,5 +23,5 @@ function build() {
 }
 
 function installpkg() {
-	 python2.7 setup.py install --prefix=/usr --root="$dir_dir" --optimize=1
+	 python2.7 setup.py install --prefix=/usr --root="$dest_dir" --optimize=1
 }
