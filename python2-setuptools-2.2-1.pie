@@ -1,0 +1,27 @@
+# vim: ft=sh
+name="python2-setuptools"
+iteration="1"
+version="2.2"
+desc="Easily download, build, install, upgrade, and uninstall Python packages"
+url="http://pypi.python.org/pypi/setuptools"
+src="http://pypi.python.org/packages/source/s/setuptools/setuptools-${version}.tar.gz"
+bdeps="python2"
+deps=""
+arch="any"
+flags=""
+srcdir="$name-$version"
+
+
+function configure() {
+
+   sed -i -e "s|^#\!.*/usr/bin/python|#!/usr/bin/python2|" setuptools/tests/test_resources.py
+   sed -i -e "s|^#\!.*/usr/bin/env python|#!/usr/bin/env python2|" setuptools/command/easy_install.py
+}
+
+function build() {
+	 python2.7 setup.py build
+}
+
+function installpkg() {
+	 python2.7 setup.py install --prefix=/usr --root="${pkgdir}" --optimize=1 --skip-build
+}
