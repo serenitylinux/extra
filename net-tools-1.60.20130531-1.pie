@@ -22,7 +22,7 @@ function build() {
 	set +e
 	yes "" | make
 	set -e
-	yes "' | make
+	yes "" | make
 }
 
 function installpkg() {
