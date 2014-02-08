@@ -1,7 +1,7 @@
 # vim: ft=sh
 name="net-tools"
 iteration="1"
-version="1.60.20130531"
+version="1.60"
 desc="Configuration tools for Linux networking"
 url="http://net-tools.sourceforge.net/"
 src=""
@@ -9,17 +9,20 @@ bdeps="git"
 deps="glibc"
 arch="any"
 flags=""
-srcdir="$name-$version"
+srcdir=""
 
 
 function configure() {
-	 git clone git://git.code.sf.net/p/net-tools
+	 git clone git://git.code.sf.net/p/net-tools/code
+	 cd code
 	 git checkout 6a14c03f
-	default
 }
 
 function build() {
-	default
+	set +e
+	yes "" | make
+	set -e
+	yes "' | make
 }
 
 function installpkg() {
