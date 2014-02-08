@@ -1,27 +1,25 @@
-# vim: ft=sh                                                                                                                                                          
-name="python2-pytz"                                                                                                                                                   
-iteration="1"                                                                                                                                                         
-version="2013.9"                                                                                                                                                      
-desc="python timezone"                                                                                                                                                
-url="https://pypi.python.org/pypi/pytz"                                                                                                                               
-src="http://pypi.python.org/packages/source/p/pytz/pytz-$version.tar.bz2"                                                                                             
-bdeps="python2"                                                                                                                                                       
-deps="python2"                                                                                                                                                        
-arch="any"                                                                                                                                                            
-flags=""                                                                                                                                                              
-srcdir="babel-$version"                                                                                                                                               
-                                                                                                                                                                      
-                                                                                                                                                                      
-function configure() {                                                                                                                                                
-         python2.7 test_tzinfo.py                                                                                                                                     
-}                                                                                                                                                                     
-                                                                                                                                                                      
-function build() {                                                                                                                                                    
-        none                                                                                                                                                          
-}                                                                                                                                                                     
-                                                                                                                                                                      
-function installpkg() {                                                                                                                                               
-         sed -i 's_#!/usr/bin/env python_#!/usr/bin/env python2.7_' pytz/tzfile.py                                                                                    
-         python2.7 setup.py install --root="$dest_dir/"                                                                                                               
-         install -D LICENSE.txt "$dest_dir/usr/share/licenses/$name/LICENSE"                                                                                          
-}             
+# vim: ft=sh
+name="python2-pytz"
+iteration="1"
+version="2013.9"
+desc="python timezone"
+url="https://pypi.python.org/pypi/pytz"
+src="http://pypi.python.org/packages/source/p/pytz/pytz-$version.tar.bz2"
+bdeps="python2"
+deps="python2"
+arch="any"
+flags=""
+srcdir="pytz-$version"
+function configure() {
+	 none
+}
+
+function build() {
+	 none
+}
+
+function installpkg() {
+	 sed -i 's_#!/usr/bin/env python_#!/usr/bin/env python2.7_' pytz/tzfile.py
+	 python2.7 setup.py install --root="$dest_dir/"
+	 install -D LICENSE.txt "$dest_dir/usr/share/licenses/$name/LICENSE"
+}
