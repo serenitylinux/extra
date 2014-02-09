@@ -1,13 +1,13 @@
 # vim: ft=sh
 name="webkitgtk2"
-iteration="1"
+iteration="2"
 version="1.10.2"
 desc="GTK+ Web engine"
 #enchant 
 deps="libxt libxslt libsoup mesa gtk2"
 
 #ruby
-bdeps="$deps gperf gobject-introspection python2 mesa ruby gstreamer0.10-base"
+bdeps="$deps gperf gobject-introspection python2 mesa ruby gstreamer0.10-base gstreamer0.10 bison flex icu which"
 arch="any"
 flags=""
 
@@ -15,13 +15,13 @@ src="http://webkitgtk.org/releases/webkitgtk-$version.tar.xz"
 url="http://webkitgtk.org/"
 srcdir="webkitgtk-$version"
 
+export PYTHON=/usr/bin/python2.7
 function configure() {
 	curl -k "https://projects.archlinux.org/svntogit/packages.git/plain/trunk/bison3.patch?h=packages/$name" -o bison3.patch
         patch -Np1 -i bison3.patch
         sed -e 's/AM_CONFIG_HEADER/AC_CONFIG_HEADERS/' -i configure.ac
 
-	CPPFLAGS+=" -Wno-unused-local-typedefs" 
-	export PYTHON=/usr/bin/python2.7
+#	CPPFLAGS+=" -Wno-unused-local-typedefs" 
 	./configure --prefix=/usr \
 		--libexecdir=/usr/lib/$name \
 		--enable-introspection \
