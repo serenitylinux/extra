@@ -1,5 +1,5 @@
 # vim: ft=sh
-name=""
+name="linux-firmware"
 iteration="1"
 version="20140123.418320b"
 desc="Firmware files for Linux"
