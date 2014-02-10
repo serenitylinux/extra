@@ -1,0 +1,33 @@
+# vim: ft=sh
+name=""
+iteration="1"
+version="20140123.418320b"
+desc="Firmware files for Linux"
+url="http://git.kernel.org/?p=linux/kernel/git/firmware/linux-firmware.git;a=summary"
+src=""
+bdeps="git"
+deps=""
+arch="any"
+flags=""
+srcdir="$name-$version"
+
+
+function configure() {
+	none
+}
+
+function build() {
+	none
+}
+
+function installpkg() {
+	git clone git://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git
+	cd linux-firmware
+	git checkout 418320bd8b4243e51fe1cae8fa05ba2bfe290111
+	rm Makefile
+	install -d -m755 "${dest_dir}/usr/lib/firmware"
+	cp -a * "${dest_dir}/usr/lib/firmware/"
+	install -d -m755 "${dest_dir}/usr/share/licenses/linux-firmware/"
+	rm -f "${dest_dir}/usr/lib/firmware/"{README*,configure,GPL*}
+	mv "${dest_dir}/usr/lib/firmware"/{LICEN*,WHENCE} "${dest_dir}/usr/share/licenses/linux-firmware/"
+}
