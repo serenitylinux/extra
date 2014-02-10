@@ -9,7 +9,7 @@ bdeps="git"
 deps=""
 arch="any"
 flags=""
-srcdir="$name-$version"
+srcdir=""
 
 
 function configure() {
