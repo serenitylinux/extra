@@ -4,11 +4,11 @@ iteration="1"
 version="1.3.6"
 desc="Desktop-independent graphical login manager for X11"
 url="http://slim.berlios.de/"
-src="http://download.berlios.de/$name/$name-$version.tar.gz"
-deps="pam libxmu libjpeg libxft libxrandr xorg-xauth"
-bdeps="cmake $deps"
-arch="any"
-flags=""
+src=('http://download.berlios.de/slim/slim-1.3.6.tar.gz')
+deps=('pam' 'libxmu' 'libjpeg' 'libxft' 'libxrandr' 'xorg-xauth')
+bdeps=('cmake' 'pam' 'libxmu' 'libjpeg' 'libxft' 'libxrandr' 'xorg-xauth')
+arch=('any')
+flags=()
 srcdir="$name-$version"
 
 

@@ -4,11 +4,11 @@ iteration="1"
 version="1.3"
 desc="A collection of tools for internationalizing Python applications"
 url="http://babel.pocoo.org/"
-src="https://github.com/mitsuhiko/babel/archive/$version.tar.gz"
-bdeps="python2 python2-setuptools python2-pytz"
-deps="python2 python2-pytz"
-arch="any"
-flags=""
+src=('https://github.com/mitsuhiko/babel/archive/1.3.tar.gz')
+bdeps=('python2' 'python2-setuptools' 'python2-pytz')
+deps=('python2' 'python2-pytz')
+arch=('any')
+flags=()
 srcdir="babel-$version"
 
 

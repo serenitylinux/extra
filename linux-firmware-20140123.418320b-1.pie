@@ -4,11 +4,11 @@ iteration="1"
 version="20140123.418320b"
 desc="Firmware files for Linux"
 url="http://git.kernel.org/?p=linux/kernel/git/firmware/linux-firmware.git;a=summary"
-src=""
-bdeps="git"
-deps=""
-arch="any"
-flags=""
+src=()
+bdeps=('git')
+deps=()
+arch=('any')
+flags=()
 srcdir=""
 
 

@@ -4,11 +4,11 @@ iteration="2"
 version="3.2.23"
 desc="Library for applications dealing with netlink sockets"
 url="http://www.infradead.org/~tgr/libnl/"
-src="http://www.infradead.org/~tgr/libnl/files/$name-$version.tar.gz"
-bdeps="flex bison"
-deps="glibc"
-arch="any"
-flags=""
+src=('http://www.infradead.org/~tgr/libnl/files/libnl-3.2.23.tar.gz')
+bdeps=('flex' 'bison')
+deps=('glibc')
+arch=('any')
+flags=()
 srcdir="$name-$version"
 
 

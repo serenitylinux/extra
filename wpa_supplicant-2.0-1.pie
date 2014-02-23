@@ -4,11 +4,11 @@ iteration="1"
 version="2.0"
 desc="A utility providing key negotiation for WPA wireless networks"
 url="http://hostap.epitest.fi/wpa_supplicant"
-src="http://w1.fi/releases/${name}-${version}.tar.gz"
-bdeps="libnl"
-deps="openssl dbus readline libnl"
-arch="any"
-flags=""
+src=('http://w1.fi/releases/wpa_supplicant-2.0.tar.gz')
+bdeps=('libnl')
+deps=('openssl' 'dbus' 'readline' 'libnl')
+arch=('any')
+flags=()
 srcdir="$name-$version/$name"
 
 

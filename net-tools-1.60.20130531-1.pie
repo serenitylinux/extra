@@ -4,11 +4,11 @@ iteration="1"
 version="1.60"
 desc="Configuration tools for Linux networking"
 url="http://net-tools.sourceforge.net/"
-src=""
-bdeps="git"
-deps="glibc"
-arch="any"
-flags=""
+src=()
+bdeps=('git')
+deps=('glibc')
+arch=('any')
+flags=()
 srcdir=""
 
 

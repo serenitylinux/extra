@@ -4,11 +4,11 @@ iteration="1"
 version="3.11"
 desc="Utility for controlling network drivers and hardware"
 url="http://www.kernel.org/pub/software/network/ethtool/"
-src="http://www.kernel.org/pub/software/network/$name/$name-$version.tar.xz"
-bdeps=""
-deps="glibc"
-arch="any"
-flags=""
+src=('http://www.kernel.org/pub/software/network/ethtool/ethtool-3.11.tar.xz')
+bdeps=()
+deps=('glibc')
+arch=('any')
+flags=()
 srcdir="$name-$version"
 
 

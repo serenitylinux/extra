@@ -4,11 +4,11 @@ iteration="1"
 version="29"
 desc="Tools allowing to manipulate the Wireless Extensions"
 url="http://www.hpl.hp.com/personal/Jean_Tourrilhes/Linux/Tools.html"
-src="http://www.hpl.hp.com/personal/Jean_Tourrilhes/Linux/${name}.${version}.tar.gz"
-bdeps=""
-deps=""
-arch="any"
-flags=""
+src=('http://www.hpl.hp.com/personal/Jean_Tourrilhes/Linux/wireless_tools.29.tar.gz')
+bdeps=()
+deps=()
+arch=('any')
+flags=()
 srcdir="${name}.$version"
 
 

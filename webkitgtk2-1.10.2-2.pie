@@ -4,14 +4,14 @@ iteration="2"
 version="1.10.2"
 desc="GTK+ Web engine"
 #enchant 
-deps="libxt libxslt libsoup mesa gtk2"
+deps=('libxt' 'libxslt' 'libsoup' 'mesa' 'gtk2')
 
 #ruby
-bdeps="$deps gperf gobject-introspection python2 mesa ruby gstreamer0.10-base gstreamer0.10 bison flex icu which"
-arch="any"
-flags=""
+bdeps=('libxt' 'libxslt' 'libsoup' 'mesa' 'gtk2' 'gperf' 'gobject-introspection' 'python2' 'mesa' 'ruby' 'gstreamer0.10-base' 'gstreamer0.10' 'bison' 'flex' 'icu' 'which')
+arch=('any')
+flags=()
 
-src="http://webkitgtk.org/releases/webkitgtk-$version.tar.xz"
+src=('http://webkitgtk.org/releases/webkitgtk-1.10.2.tar.xz')
 url="http://webkitgtk.org/"
 srcdir="webkitgtk-$version"
 

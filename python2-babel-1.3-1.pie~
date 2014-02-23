@@ -4,11 +4,11 @@ iteration="1"
 version="2.2"
 desc="Easily download, build, install, upgrade, and uninstall Python packages"
 url="http://pypi.python.org/pypi/setuptools"
-src="http://pypi.python.org/packages/source/s/setuptools/setuptools-${version}.tar.gz"
-bdeps="python2"
-deps=""
-arch="any"
-flags=""
+src=('http://pypi.python.org/packages/source/s/setuptools/setuptools-2.2.tar.gz')
+bdeps=('python2')
+deps=()
+arch=('any')
+flags=()
 srcdir="setuptools-$version"
 
 

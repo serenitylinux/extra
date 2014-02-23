@@ -4,11 +4,11 @@ iteration="1"
 version="1.9.2"
 desc="A collection of common network programs"
 url="http://www.gnu.org/software/inetutils/"
-src="http://ftp.gnu.org/gnu/inetutils/${name}-${version}.tar.xz"
-bdeps=""
-deps="pam"
-arch="any"
-flags=""
+src=('http://ftp.gnu.org/gnu/inetutils/inetutils-1.9.2.tar.xz')
+bdeps=()
+deps=('pam')
+arch=('any')
+flags=()
 srcdir="$name-$version"
 
 

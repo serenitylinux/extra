@@ -4,11 +4,11 @@ iteration="1"
 version="2.1.0"
 desc="An object-oriented language for quick and easy programming"
 url="http://ruby-lang.org/"
-src="http://cache.ruby-lang.org/pub/ruby/ruby-$version.tar.bz2"
-bdeps="gdbm openssl libffi"
-deps=""
-arch="any"
-flags=""
+src=('http://cache.ruby-lang.org/pub/ruby/ruby-2.1.0.tar.bz2')
+bdeps=('gdbm' 'openssl' 'libffi')
+deps=()
+arch=('any')
+flags=()
 srcdir="$name-$version"
 
 

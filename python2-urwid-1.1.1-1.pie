@@ -4,11 +4,11 @@ iteration="1"
 version="1.1.1"
 desc="Urwid is a curses-based user interface library."
 url="http://excess.org/urwid/"
-src="http://excess.org/urwid/urwid-$version.tar.gz"
-bdeps="python2-setuptools python2"
-deps="python2"
-arch="any"
-flags=""
+src=('http://excess.org/urwid/urwid-1.1.1.tar.gz')
+bdeps=('python2-setuptools' 'python2')
+deps=('python2')
+arch=('any')
+flags=()
 srcdir="urwid-$version"
 
 
